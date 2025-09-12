@@ -1,7 +1,7 @@
 import defaultParserInterface from '../utils/defaultParserInterface'
-import astserde from './astserde.js';
+import astserde from './astserde.wasm.js';
 
-const ID = 'mbt';
+const ID = 'lexer';
 
 export default {
   ...defaultParserInterface,
@@ -28,7 +28,7 @@ export default {
     do {
       this.lineOffsets.push(index);
     } while ((index = code.indexOf('\n', index) + 1)); // eslint-disable-line no-cond-assign
-    const result = parser.parse(code)
+    const result = parser.parse(code, "lexer")
     return JSON.parse(result)
   },
 

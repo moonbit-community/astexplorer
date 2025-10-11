@@ -91,7 +91,7 @@ export default class PasteDropTarget extends React.Component {
         if (categoryId === 'JSON' || categoryId === 'TEXT') {
           text = this._jsonToCode(text).then(
             text => {
-              categoryId = 'javascript';
+              categoryId = 'moonbit';
               return text;
             },
             ex => {

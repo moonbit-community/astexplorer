@@ -45,10 +45,10 @@ const plugins = [
     /cli-engine/,
     'node-libs-browser/mock/empty',
   ),
-  new webpack.NormalModuleReplacementPlugin(
-    /load-rules/,
-    __dirname + '/src/parsers/js/transformers/eslint1/loadRulesShim.js',
-  ),
+  // new webpack.NormalModuleReplacementPlugin(
+  //   /load-rules/,
+  //   __dirname + '/src/parsers/js/transformers/eslint1/loadRulesShim.js',
+  // ),
 
   // More shims
 

@@ -239,7 +239,7 @@ Editor.defaultProps = {
   highlight: true,
   lineNumbers: true,
   readOnly: false,
-  mode: 'javascript',
+  mode: 'moonbit',
   keyMap: 'default',
   onContentChange: () => {},
   onActivity: () => {},

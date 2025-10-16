@@ -1,5 +1,5 @@
 import defaultParserInterface from '../utils/defaultParserInterface'
-import astserde from './astserde.wasm.js';
+import parser from './astserde.wasm.js';
 
 const ID = 'mbt';
 
@@ -8,13 +8,13 @@ export default {
 
   id: ID,
   displayName: "handrolled",
-  version: "0.1.0",
+  version: parser.version,
   homepage: `https://www.moonbitlang.com/`,
   _ignoredProperties: new Set(['']),
   locationProps: new Set(['loc']),
 
   loadParser(callback) {
-    WebAssembly.instantiate(astserde, {},
+    WebAssembly.instantiate(parser.binary, {},
       { builtins: ["js-string"], importedStringConstants: "_", })
       .then(({ instance }) => {
         console.log(instance.exports)

@@ -25,15 +25,23 @@ jobs:
           node-version: '16'
           cache: 'yarn'
           cache-dependency-path: 'website/yarn.lock'
-          
-      - name: Install dependencies
+
+      - name: Install MoonBit 
         run: |
-          cd website
-          yarn install
+          curl -fsSL https://cli.moonbitlang.com/install/unix.sh | bash          
+          echo "$HOME/.moon/bin" >> $GITHUB_PATH
           
+      - name: Build MoonBit parser
+        run: |
+          moon version
+          cd moonbit
+          npm install
+          node build.js
+         
       - name: Build website
         run: |
           cd website
+          yarn install
           echo "Node.js version: $(node --version)"
           echo "Yarn version: $(yarn --version)"
           yarn build
